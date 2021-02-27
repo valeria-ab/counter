@@ -1,6 +1,77 @@
 .App {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
   text-align: center;
+  background-color: #292c35;
+/*padding-top: 10% ;*/
+  height: 100vh;
 }
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 550px;
+  margin: auto;
+  border: #61dafb 3px solid;
+  border-radius: 20px;
+  font-size: 60px;
+  padding: 25px;
+  height: 350px;
+}
+.display {
+ /* background-color: #63dafc;*/
+  border: #61dafb 3px solid;
+  /*padding: 50px;*/
+  color: #61dafb;
+  font-size: 70px;
+  font-weight: bolder;
+  border-radius: 20px;
+  height: 150px;
+  padding: 30px;
+
+}
+button {
+  background-color: #63dafc;
+
+  color: #292c35;
+  font-size: 60px;
+  border-radius: 20px;
+  padding: 0px 20px;
+  font-weight: bolder;
+border: none;
+}
+button:active {
+  background: #292c35;
+  color: #63dafc;
+}
+button:focus {
+  outline: none;
+}
+
+button:disabled {
+  background-color: rgba(99, 218, 252, 0.3);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+padding: 10px;
+  margin-top: 20px;
+  border: #61dafb 3px solid;
+  border-radius: 20px;
+  height: 100px;
+}
+
+.five-red {
+  color: red;
+  font-size: 80px;
+
+}
+
+
+
 
 .App-logo {
   height: 40vmin;
