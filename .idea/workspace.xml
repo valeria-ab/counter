@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18e79fbc-dc53-423d-acbd-8763c5903de4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Counter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Display.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CounterWithValue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Counter.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +26,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ignat-dz" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -34,11 +35,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="D:\incubator\exam\my-app\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="D:\incubator\exam\my-app\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -73,10 +75,22 @@
       <updated>1614354444686</updated>
       <workItem from="1614354448109" duration="7393000" />
       <workItem from="1614423140093" duration="12582000" />
+      <workItem from="1616611571681" duration="4525000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

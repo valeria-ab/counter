@@ -6,7 +6,7 @@ type ButtonValueType = {
     title: string
     value: number
     onClickHandler: () => void
-    classname: string
+
     disable: boolean
 }
 
@@ -17,7 +17,7 @@ function Button(props: ButtonValueType) {
         <div className={'button'}>
 
             <button
-                className={props.classname}
+
                 onClick={props.onClickHandler}
                 disabled={props.disable}
             >

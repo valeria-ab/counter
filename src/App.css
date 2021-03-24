@@ -6,7 +6,7 @@
   text-align: center;
   background-color: #292c35;
 /*padding-top: 10% ;*/
-  height: 100vh;
+  min-height: 100vh;
 }
 .counter {
   display: flex;
@@ -23,18 +23,39 @@
 .display {
  /* background-color: #63dafc;*/
   border: #61dafb 3px solid;
-  /*padding: 50px;*/
+  padding: 50px;
   color: #61dafb;
   font-size: 70px;
   font-weight: bolder;
   border-radius: 20px;
   height: 150px;
-  padding: 30px;
 
+
+}
+.display-counter-with-value {
+  border: #61dafb 3px solid;
+
+  padding: 25px;
+  font-size: 40px;
+
+  color: #61dafb;
+
+  font-weight: bolder;
+  border-radius: 20px;
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+justify-content: space-between;
+}
+.display-counter-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 button {
   background-color: #63dafc;
-
+  margin-top: 15px;
   color: #292c35;
   font-size: 60px;
   border-radius: 20px;

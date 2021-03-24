@@ -11,26 +11,34 @@ type CounterPropsType = {
     reset: () => void
 }
 
-function Counter(props: CounterPropsType) {
+function CounterWithValue(props: CounterPropsType) {
 
     return (
         <div className={'counter'}>
-            <Display value={props.value}/>
+
+                <div className={"display-counter-with-value"}>
+                    <div className={"display-counter-items"}>
+                        <span>max value:</span>
+                        <input type="text"/>
+
+                    </div>
+                    <div className={"display-counter-items"}>
+                        <span>start value:</span>
+
+                        <input type="text"/>
+                    </div>
+
+
+            </div>
             <div className={'buttons'}>
                 <Button
-                    title={'inc'}
+                    title={'set'}
 
                     value={props.value}
                     onClickHandler={props.increment}
                     disable={props.value === 5}
                 />
-                <Button
-                    title={'reset'}
 
-                    value={props.value}
-                    onClickHandler={props.reset}
-                    disable={props.value === 0}
-                />
             </div>
 
 
@@ -38,4 +46,4 @@ function Counter(props: CounterPropsType) {
     );
 }
 
-export default Counter;
+export default CounterWithValue;

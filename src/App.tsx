@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counter from './Counter';
+import CounterWithValue from "./CounterWithValue";
 
 /*export type CounterValueType = 0 | 1 | 2 | 3 | 4 | 5 ;*/
 
@@ -17,6 +18,11 @@ function App() {
   return (
     <div className="App">
     <Counter
+        value={value}
+        increment={increment}
+        reset={reset}
+    />
+    <CounterWithValue
         value={value}
         increment={increment}
         reset={reset}
