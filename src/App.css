@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   text-align: center;
   background-color: #292c35;
-/*padding-top: 10% ;*/
+  /*padding-top: 10% ;*/
   min-height: 100vh;
 }
 .counter {
@@ -21,7 +21,7 @@
   height: 350px;
 }
 .display {
- /* background-color: #63dafc;*/
+  /* background-color: #63dafc;*/
   border: #61dafb 3px solid;
   padding: 50px;
   color: #61dafb;
@@ -29,8 +29,6 @@
   font-weight: bolder;
   border-radius: 20px;
   height: 150px;
-
-
 }
 .display-counter-with-value {
   border: #61dafb 3px solid;
@@ -46,7 +44,7 @@
 
   display: flex;
   flex-direction: column;
-justify-content: space-between;
+  justify-content: space-between;
 }
 .display-counter-items {
   display: flex;
@@ -61,7 +59,7 @@ button {
   border-radius: 20px;
   padding: 0px 20px;
   font-weight: bolder;
-border: none;
+  border: none;
 }
 button:active {
   background: #292c35;
@@ -78,31 +76,32 @@ button:disabled {
 .buttons {
   display: flex;
   justify-content: space-around;
-padding: 10px;
+  padding: 10px;
   margin-top: 20px;
   border: #61dafb 3px solid;
   border-radius: 20px;
   height: 100px;
 }
 
-.five-red {
-  color: red;
+.warning {
+  color: rgb(255, 20, 78);
   font-size: 80px;
-
+}
+.error {
+  color: rgb(255, 20, 78);
+  font-size: 45px;
+}
+.inputError {
+  border: 3px solid rgb(255, 20, 78);
+  background-color: rgb(245, 65, 110);
 }
 
-
-
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.counterInput {
+  width: 170px;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .App-header {
@@ -114,17 +113,4 @@ padding: 10px;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

@@ -2,32 +2,44 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counter from './Counter';
-import CounterWithValue from "./CounterWithValue";
+import CounterWithSettings from "./CounterWithSettings";
 
-/*export type CounterValueType = 0 | 1 | 2 | 3 | 4 | 5 ;*/
 
 function App() {
-  let [value, setValue] = useState<number>(0)
-  let increment = () => {
+  const [value, setValue] = useState<number>(0)
+  const [maxValue, setMaxValue] = useState<number>(0)
+  const [error, setError] = useState<string>("")
+  const [disabled, setDisabled] = useState<boolean>(false)
+  const increment = () => {
     setValue( value + 1)
+   
   }
-  let reset = () => {
+  const reset = () => {
     setValue( 0)
   }
 
+
   return (
     <div className="App">
-    <Counter
+    
+    <CounterWithSettings
         value={value}
         increment={increment}
         reset={reset}
+        setValue={setValue}
+        setMaxValue={setMaxValue}
+        setError={setError}
+        disabled={disabled}
+        setDisabled={setDisabled}
+        error={error}
     />
-    <CounterWithValue
+<Counter
         value={value}
         increment={increment}
         reset={reset}
+        maxValue={maxValue}
+        error={error}
     />
-
     </div>
   );
 }

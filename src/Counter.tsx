@@ -9,27 +9,27 @@ type CounterPropsType = {
     value: number
     increment: () => void
     reset: () => void
+    maxValue: number;
+    error: string
 }
 
 function Counter(props: CounterPropsType) {
 
     return (
         <div className={'counter'}>
-            <Display value={props.value}/>
+            <Display value={props.value} maxValue={props.maxValue} error={props.error}/>
             <div className={'buttons'}>
                 <Button
                     title={'inc'}
-
                     value={props.value}
                     onClickHandler={props.increment}
-                    disable={props.value === 5}
+                    disabled={props.value === props.maxValue}
                 />
                 <Button
                     title={'reset'}
-
                     value={props.value}
                     onClickHandler={props.reset}
-                    disable={props.value === 0}
+                    disabled={props.value === 0}
                 />
             </div>
 
