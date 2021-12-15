@@ -46,6 +46,13 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.regular {
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .display-counter-items {
   display: flex;
   flex-direction: row;
