@@ -15,23 +15,21 @@ function Display(props: DisplayPropsType) {
   //console.log("value:", props.value, "maxValue:", props.maxValue);
 
   if (props.error) {
-    span = <span className="error">{props.error}</span>;
+    span = <span className={`${"error"} ${"regular"}`}>{props.error}</span>;
   } else {
-    if (!props.displayMessage && props.value >= 0) {
-      span = <span>{props.value}</span>;
+    if (!props.displayMessage) {
+      span = (
+        <span className={props.value === props.maxValue ? "warning" : ""}>
+          {props.value}
+        </span>
+      );
     } else {
       span = <span className="regular">{props.displayMessage}</span>;
     }
   }
 
   return (
-    <div
-      className={
-        props.value === props.maxValue && props.value > 0
-          ? `${"display"} ${"warning"}`
-          : "display"
-      }
-    >
+    <div className={"display"}>
       {span}
 
       {/* {

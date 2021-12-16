@@ -26,19 +26,21 @@ function Counter(props: CounterPropsType) {
       />
       <div className={"buttons"}>
         <Button
-         
           title={"inc"}
           onClickHandler={props.increment}
           disabled={
-            props.inc === props.maxValue || props.displayMessage.length > 1
+            props.inc === props.maxValue ||
+            props.displayMessage.length > 1 ||
+            props.error.length > 1
           }
         />
         <Button
-  
           title={"reset"}
           onClickHandler={props.reset}
           disabled={
-            props.inc === props.startValue || props.displayMessage.length > 1 || props.error.length > 1
+            props.inc === props.startValue ||
+            props.displayMessage.length > 1 ||
+            props.error.length > 1
           }
         />
       </div>
