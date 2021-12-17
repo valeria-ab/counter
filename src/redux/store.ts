@@ -1,7 +1,9 @@
 import { combineReducers, createStore } from "redux";
+import { counterReducer } from "./counter-reducer";
 
-//корневой reducer который получает все action-ы и раскидывает дальше по всем редьюсерам
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  counter: counterReducer,
+});
 
 //создаёт тип на основе анализа того что rootReducer возвращает
 export type AppRootStateType = ReturnType<typeof rootReducer>;

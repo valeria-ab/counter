@@ -48,12 +48,12 @@
 }
 
 .regular {
-  font-size: 40px;
+  font-size: 35px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* flex-direction: column;
+  justify-content: space-between; */
 }
-.display-counter-items {
+.display-counter-item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

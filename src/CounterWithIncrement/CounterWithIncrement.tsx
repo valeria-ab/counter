@@ -1,24 +1,21 @@
-import React, { useState } from "react";
-import { parentPort } from "worker_threads";
-import logo from "../logo.svg";
-import "./App.css";
-import Button from "./Button";
-import Display from "./Display";
+import Button from "../common/Button";
+import "./../App.css";
+import DisplayWithIncrement from "./DisplayWithIncrement";
 
 type CounterPropsType = {
   inc: number;
-  increment: () => void;
+  increase: () => void;
   reset: () => void;
   maxValue: number;
-  error: string;
+  error: boolean;
   displayMessage: string;
   startValue: number;
 };
 
-function Counter(props: CounterPropsType) {
+function CounterWithIncrement(props: CounterPropsType) {
   return (
     <div className={"counter"}>
-      <Display
+      <DisplayWithIncrement
         value={props.inc}
         maxValue={props.maxValue}
         error={props.error}
@@ -27,11 +24,11 @@ function Counter(props: CounterPropsType) {
       <div className={"buttons"}>
         <Button
           title={"inc"}
-          onClickHandler={props.increment}
+          onClickHandler={props.increase}
           disabled={
             props.inc === props.maxValue ||
             props.displayMessage.length > 1 ||
-            props.error.length > 1
+            props.error
           }
         />
         <Button
@@ -40,7 +37,7 @@ function Counter(props: CounterPropsType) {
           disabled={
             props.inc === props.startValue ||
             props.displayMessage.length > 1 ||
-            props.error.length > 1
+            props.error
           }
         />
       </div>
@@ -48,4 +45,4 @@ function Counter(props: CounterPropsType) {
   );
 }
 
-export default Counter;
+export default CounterWithIncrement;

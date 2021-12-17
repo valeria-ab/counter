@@ -1,48 +1,79 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Counter from "./Counter";
-import CounterWithSettings from "./CounterWithSettings";
+import CounterWithSettings from "./CounterWithSettings/CounterWithSettings";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setButtonDisableAC,
+  setDisplayMessageAC,
+  setErrorAC,
+  setMaxValueAC,
+  setStartValueAC,
+} from "./redux/counter-reducer";
+import { AppRootStateType } from "./redux/store";
+import CounterWithIncrement from "./CounterWithIncrement/CounterWithIncrement";
 
 function App() {
-  const [startValue, setStartValue] = useState<number>(0);
-  const [inc, setIncrement] = useState<number>(0);
-  const [maxValue, setMaxValue] = useState<number>(0);
-  const [error, setError] = useState<string>("");
-  const [displayMessage, setDisplayMessage] = useState<string>(
-    "Enter values and press 'set'"
-  );
-  const [disabled, setDisabled] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
-  const increment = () => {
-    setIncrement(inc + 1);
+  const startValue = useSelector<AppRootStateType, number>(
+    (state) => state.counter.startValue
+  );
+  const maxValue = useSelector<AppRootStateType, number>(
+    (state) => state.counter.maxValue
+  );
+  const buttonDisable = useSelector<AppRootStateType, boolean>(
+    (state) => state.counter.buttonDisable
+  );
+  const error = useSelector<AppRootStateType, boolean>(
+    (state) => state.counter.error
+  );
+  const displayMessage = useSelector<AppRootStateType, string>(
+    (state) => state.counter.displayMessage
+  );
+
+  const setStartValue = (startValue: number) => {
+    dispatch(setStartValueAC(startValue));
+  };
+  const setMaxValue = (maxValue: number) => {
+    dispatch(setMaxValueAC(maxValue));
+  };
+  const setButtonDisable = (value: boolean) => {
+    dispatch(setButtonDisableAC(value));
+  };
+  const setError = (value: boolean) => {
+    dispatch(setErrorAC(value));
+  };
+  const setDisplayMessage = (message: string) => {
+    dispatch(setDisplayMessageAC(message));
+  };
+
+  const [inc, setInc] = useState<number>(startValue);
+  const increase = () => {
+    setInc(inc + 1);
   };
   const reset = () => {
-    setIncrement(startValue);
+    setInc(startValue);
   };
 
   return (
     <div className="App">
       <CounterWithSettings
-        inc={inc}
-        setStartValue={setStartValue}
-        increment={increment}
-        reset={reset}
-        setIncrement={setIncrement}
-        setMaxValue={setMaxValue}
+        error={error}
         setError={setError}
-        disabled={disabled}
-        setDisabled={setDisabled}
-        error={error}
+        disabled={buttonDisable}
+        setDisabled={setButtonDisable}
         setDisplayMessage={setDisplayMessage}
+        setIncrement={setInc}
+        setStartValue={setStartValue}
+        setMaxValue={setMaxValue}
       />
-      <Counter
-        displayMessage={displayMessage}
+      <CounterWithIncrement
         inc={inc}
-        increment={increment}
+        increase={increase}
         reset={reset}
-        maxValue={maxValue}
         error={error}
+        displayMessage={displayMessage}
+        maxValue={maxValue}
         startValue={startValue}
       />
     </div>
