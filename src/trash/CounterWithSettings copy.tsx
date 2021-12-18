@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./../App.css";
-import Button from "../common/Button";
-import DisplayCounterItem from "../CounterWithSettings/DisplayCounterWithSettings/DisplayCounterItem";
+import Button from "../common/Button/Button";
+import DisplayCounterItem from "../CounterWithSettings/DisplayCounterWithSettings/DisplaySettingItem/DisplayCounterItem";
 
 type CounterPropsType = {
   setStartValue: (value: number) => void;

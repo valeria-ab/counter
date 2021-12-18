@@ -1,5 +1,4 @@
-import React from "react";
-import "./../App.css";
+import styles from "./Button.module.css";
 
 type ButtonValueType = {
   title: string;
@@ -9,8 +8,12 @@ type ButtonValueType = {
 
 function Button(props: ButtonValueType) {
   return (
-    <div className={"button"}>
-      <button onClick={props.onClickHandler} disabled={props.disabled}>
+    <div>
+      <button
+        className={styles.button}
+        onClick={props.onClickHandler}
+        disabled={props.disabled}
+      >
         {props.title}
       </button>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./../App.css";
-import Button from "../common/Button";
+import styles from  "./../common/CommonStyles.module.css";
+import Button from "../common/Button/Button";
 import { DisplayCounterWithSettings } from "./DisplayCounterWithSettings/DisplayCounterWithSettings";
 
 type CounterPropsType = {
@@ -115,7 +115,7 @@ function CounterWithSettings(props: CounterPropsType) {
   };
 
   return (
-    <div className={"counter"}>
+    <div className={styles.counter}>
       <DisplayCounterWithSettings
         maxValueInputError={maxValueInputError}
         startValueInputError={startValueInputError}
@@ -125,7 +125,7 @@ function CounterWithSettings(props: CounterPropsType) {
         setStartValue={setStartValue}
       />
 
-      <div className={"buttons"}>
+      <div className={styles.buttonsBlock}>
         <Button
           title={"set"}
           onClickHandler={onButtonClick}

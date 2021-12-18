@@ -1,0 +1,31 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 550px;
+  margin: auto;
+  border: #61dafb 3px solid;
+  border-radius: 20px;
+  padding: 25px;
+  height: 350px;
+}
+
+.display {
+  padding: 25px;
+  border: #61dafb 3px solid;
+  color: #61dafb;
+  font-weight: bolder;
+  border-radius: 20px;
+  height: 150px;
+}
+
+.buttonsBlock {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+  border: #61dafb 3px solid;
+  border-radius: 20px;
+  height: 100px;
+}

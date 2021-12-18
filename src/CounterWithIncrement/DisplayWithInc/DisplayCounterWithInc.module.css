@@ -1,0 +1,21 @@
+.displayCounterWithIncrement {
+  font-size: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.regular {
+  font-size: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.warning {
+  color: rgb(255, 20, 78);
+  font-size: 85px;
+}
+.error {
+  color: rgb(255, 20, 78);
+  font-size: 30px;
+}

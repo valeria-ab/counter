@@ -1,6 +1,6 @@
-import Button from "../common/Button";
-import "./../App.css";
-import DisplayWithIncrement from "./DisplayWithIncrement";
+import Button from "../common/Button/Button";
+import styles from  "./../common/CommonStyles.module.css";
+import DisplayWithIncrement from "./DisplayWithInc/DisplayWithIncrement";
 
 type CounterPropsType = {
   inc: number;
@@ -14,14 +14,14 @@ type CounterPropsType = {
 
 function CounterWithIncrement(props: CounterPropsType) {
   return (
-    <div className={"counter"}>
+    <div className={styles.counter}>
       <DisplayWithIncrement
         value={props.inc}
         maxValue={props.maxValue}
         error={props.error}
         displayMessage={props.displayMessage}
       />
-      <div className={"buttons"}>
+      <div className={styles.buttonsBlock}>
         <Button
           title={"inc"}
           onClickHandler={props.increase}

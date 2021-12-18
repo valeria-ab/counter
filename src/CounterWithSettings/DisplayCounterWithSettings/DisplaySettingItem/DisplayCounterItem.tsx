@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
+import s from "./DisplayCounterItem.module.css";
 
-
- type DisplayCounterItemProps = {
+type DisplayCounterItemProps = {
   title: string;
   isError: boolean;
   value: number;
@@ -12,11 +12,13 @@ const DisplayCounterItem = (props: DisplayCounterItemProps) => {
     props.onChange(+e.currentTarget.value);
   };
   return (
-    <div className={"display-counter-item"}>
+    <div className={s.displayCounterItem}>
       <span>{props.title}</span>
 
       <input
-        className={props.isError ? "counterInput inputError" : "counterInput"}
+        className={
+          props.isError ? `${s.counterInput} ${s.inputError}` : s.counterInput
+        }
         type="number"
         value={props.value}
         onChange={onChange}

@@ -1,6 +1,6 @@
 import "./../App.css";
-import Button from "../common/Button";
-import DisplayWithIncrement from "../CounterWithIncrement/DisplayWithIncrement";
+import Button from "../common/Button/Button";
+import DisplayWithIncrement from "../CounterWithIncrement/DisplayWithInc/DisplayWithIncrement";
 
 type CounterPropsType = {
   inc: number;

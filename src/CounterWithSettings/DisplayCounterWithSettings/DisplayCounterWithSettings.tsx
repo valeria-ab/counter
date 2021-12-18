@@ -1,6 +1,6 @@
-import DisplayCounterItem, {
-} from "./DisplayCounterItem";
-import "./../../App.css";
+import DisplayCounterItem from "./DisplaySettingItem/DisplayCounterItem";
+import styles from "./../../common/CommonStyles.module.css";
+import s from "./DisplayCounterWithSettings.module.css";
 
 type DisplayCounterWithSettingsProps = {
   maxValueInputError: boolean;
@@ -14,7 +14,7 @@ export const DisplayCounterWithSettings = (
   props: DisplayCounterWithSettingsProps
 ) => {
   return (
-    <div className={"display-counter-with-value"}>
+    <div className={`${styles.display} ${s.displayCounterWithSettings}`}>
       <DisplayCounterItem
         title="max value:"
         isError={props.maxValueInputError}
