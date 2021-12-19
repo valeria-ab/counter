@@ -1,9 +1,9 @@
 import React from "react";
-import styles from  "./../../common/CommonStyles.module.css";
-import s from "./DisplayCounterWithInc.module.css"
+import styles from "./../../common/CommonStyles.module.css";
+import s from "./DisplayCounterWithInc.module.css";
 
 type DisplayPropsType = {
-  value: number;
+  value: number | null;
   maxValue: number;
   error: boolean;
   displayMessage: string;

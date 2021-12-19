@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import styles from  "./../common/CommonStyles.module.css";
+import styles from "./../common/CommonStyles.module.css";
 import Button from "../common/Button/Button";
 import { DisplayCounterWithSettings } from "./DisplayCounterWithSettings/DisplayCounterWithSettings";
+import { useDispatch, useSelector } from "react-redux";
+import { AppRootStateType } from "../redux/store";
+import {
+  setMaxValueInputErrorAC,
+  setStartValueInputErrorAC,
+} from "../redux/counter-reducer";
 
 type CounterPropsType = {
+  startValue: number;
+  maxValue: number;
   setStartValue: (value: number) => void;
   setIncrement: (value: number) => void;
   setMaxValue: (value: number) => void;
@@ -15,52 +23,60 @@ type CounterPropsType = {
 };
 
 function CounterWithSettings(props: CounterPropsType) {
-  const [startValue, setstartValue] = useState<number>(0);
-  const [maxValue, setMaxVal] = useState<number>(1);
+  const dispatch = useDispatch();
+  const startValueInputError = useSelector<AppRootStateType, boolean>(
+    (state) => state.counter.startValueInputError
+  );
+  const maxValueInputError = useSelector<AppRootStateType, boolean>(
+    (state) => state.counter.maxValueInputError
+  );
 
-  const [maxValueInputError, setmaxValueInputError] = useState<boolean>(false);
-  const [startValueInputError, setstartValueInputError] =
-    useState<boolean>(false);
+  const setStartValueInputError = (startValueInputError: boolean) => {
+    dispatch(setStartValueInputErrorAC(startValueInputError));
+  };
+  const setMaxValueInputError = (maxValueInputError: boolean) => {
+    dispatch(setMaxValueInputErrorAC(maxValueInputError));
+  };
 
   const ifCorrectValue = () => {
     props.setError(false);
-    setstartValueInputError(false);
-    setmaxValueInputError(false);
+    setStartValueInputError(false);
+    setMaxValueInputError(false);
     props.setDisabled(false);
     props.setDisplayMessage("Enter values and press 'set'");
   };
   const handleSetMaxValueError = (message: string) => {
-    setmaxValueInputError(true);
+    setMaxValueInputError(true);
     props.setError(true);
     props.setDisplayMessage(message);
   };
   const handleSetStartValueError = (message: string) => {
-    setstartValueInputError(true);
+    setStartValueInputError(true);
     props.setError(true);
     props.setDisplayMessage(message);
   };
 
   const setStartValue = (value: number) => {
-    setstartValue(value);
+    props.setStartValue(value);
 
     if (value >= 0) {
-      setstartValueInputError(false);
+      setStartValueInputError(false);
 
-      if (value !== maxValue) {
-        if (value < maxValue) {
-          if (maxValue > 0) {
+      if (value !== props.maxValue) {
+        if (value < props.maxValue) {
+          if (props.maxValue > 0) {
             ifCorrectValue();
           } else {
             handleSetMaxValueError("max value должен быть больше 0");
           }
         } else {
-          setmaxValueInputError(true);
+          setMaxValueInputError(true);
           handleSetStartValueError(
             "start value не может быть больше max value"
           );
         }
       } else {
-        setmaxValueInputError(true);
+        setMaxValueInputError(true);
         handleSetStartValueError(
           "start value и max value не должны быть равны"
         );
@@ -71,14 +87,14 @@ function CounterWithSettings(props: CounterPropsType) {
   };
 
   const setMaxValue = (value: number) => {
-    setMaxVal(value);
+    props.setMaxValue(value);
 
     if (value > 0) {
-      setmaxValueInputError(false);
+      setMaxValueInputError(false);
 
-      if (value !== startValue) {
-        if (value > startValue) {
-          if (startValue >= 0) {
+      if (value !== props.startValue) {
+        if (value > props.startValue) {
+          if (props.startValue >= 0) {
             ifCorrectValue();
           } else {
             handleSetStartValueError(
@@ -89,7 +105,7 @@ function CounterWithSettings(props: CounterPropsType) {
           handleSetMaxValueError("max value не может быть меньше  start value");
         }
       } else {
-        setstartValueInputError(true);
+        setStartValueInputError(true);
         handleSetMaxValueError("max value и start value не должны быть равны");
       }
     } else {
@@ -98,17 +114,17 @@ function CounterWithSettings(props: CounterPropsType) {
   };
 
   const onButtonClick = () => {
-    if (maxValue > 0 && startValue >= 0) {
-      props.setStartValue(startValue);
-      props.setIncrement(startValue);
-      props.setMaxValue(maxValue);
+    if (props.maxValue > 0 && props.startValue >= 0) {
+      props.setStartValue(props.startValue);
+      props.setIncrement(props.startValue);
+      props.setMaxValue(props.maxValue);
       props.setDisabled(true);
       props.setDisplayMessage("");
     } else {
-      if (maxValue < 1) {
+      if (props.maxValue < 1) {
         handleSetMaxValueError("Incorrect Value!");
       }
-      if (startValue < 0) {
+      if (props.startValue < 0) {
         handleSetStartValueError("Incorrect Value!");
       }
     }
@@ -119,9 +135,9 @@ function CounterWithSettings(props: CounterPropsType) {
       <DisplayCounterWithSettings
         maxValueInputError={maxValueInputError}
         startValueInputError={startValueInputError}
-        maxValue={maxValue}
+        maxValue={props.maxValue}
         setMaxValue={setMaxValue}
-        startValue={startValue}
+        startValue={props.startValue}
         setStartValue={setStartValue}
       />
 

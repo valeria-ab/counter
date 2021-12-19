@@ -1,10 +1,10 @@
 import Button from "../common/Button/Button";
-import styles from  "./../common/CommonStyles.module.css";
+import styles from "./../common/CommonStyles.module.css";
 import DisplayWithIncrement from "./DisplayWithInc/DisplayWithIncrement";
 
 type CounterPropsType = {
-  inc: number;
-  increase: () => void;
+  inc: number | null;
+  incHandler: () => void;
   reset: () => void;
   maxValue: number;
   error: boolean;
@@ -24,7 +24,7 @@ function CounterWithIncrement(props: CounterPropsType) {
       <div className={styles.buttonsBlock}>
         <Button
           title={"inc"}
-          onClickHandler={props.increase}
+          onClickHandler={props.incHandler}
           disabled={
             props.inc === props.maxValue ||
             props.displayMessage.length > 1 ||
